@@ -19,7 +19,6 @@ form.addEventListener("submit", (e) => {
 more.addEventListener("click", loadMore);
 
 // Functions
-
 function updateInput(e) {
     searchValue = e.target.value;
 }
@@ -76,13 +75,7 @@ async function loadMore() {
     page++;
     if (currentSearch) {
         fetchLink = `https://api.pexels.com/v1/search?query=${currentSearch}+query&per_page=15&page=${page}`;
-        console.group("in if");
-        console.log(page);
-        console.groupEnd();
     } else {
-        console.group("in else");
-        console.log(page);
-        console.groupEnd();
         fetchLink = `https://api.pexels.com/v1/curated?per_page=15&page=${page}`;
     }
     const data = await fetchApi(fetchLink);
